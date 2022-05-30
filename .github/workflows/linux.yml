@@ -33,6 +33,6 @@ jobs:
     # Build LZMA C SDK
     - name: Build LZMA C SDK
       run: |
-        cmake -S. -Bbuild -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        cmake -S. -Bbuild -DCMAKE_C_COMPILER=${{ matrix.cxx }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         cmake --build build --install-prefix ./install
-        cmake --install build            
+        cmake --install build
