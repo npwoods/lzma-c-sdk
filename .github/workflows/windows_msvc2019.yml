@@ -44,6 +44,6 @@ jobs:
     # Build LZMA C SDK
     - name: Build LZMA C SDK
       run: |
-        cmake . -G "Visual Studio 16 2019"
-        cmake --build .
-        cmake --install .            
+        cmake -S. -Bbuild  -G "Visual Studio 16 2019"
+        cmake --build build
+        cmake --install build          
