@@ -32,6 +32,15 @@ jobs:
       with:
         fetch-depth: 0
 
+    # Install MSYS2
+    - name: Install MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW64
+        update: false
+        release: false
+        install: git parallel p7zip mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake mingw-w64-x86_64-ninja mingw-w64-x86_64-polly mingw-w64-x86_64-mlir mingw-w64-x86_64-clang mingw-w64-x86_64-clang-analyzer mingw-w64-x86_64-clang-tools-extra patch
+
     # Build LZMA C SDK
     - name: Build LZMA C SDK
       run: |
