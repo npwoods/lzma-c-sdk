@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cxx: [clang++, g++-10]
+        c: [clang, gcc-10]
         build_type: [Debug, Release]
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +33,6 @@ jobs:
     # Build LZMA C SDK
     - name: Build LZMA C SDK
       run: |
-        cmake -S. -Bbuild -DCMAKE_C_COMPILER=${{ matrix.cxx }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        cmake -S. -Bbuild -DCMAKE_C_COMPILER=${{ matrix.c }} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         cmake --build build --install-prefix ./install
         cmake --install build
