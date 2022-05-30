@@ -3,6 +3,8 @@ project (lzma C)
 
 include(GNUInstallDirs)
 
+set(CMAKE_DEBUG_POSTFIX "d")
+
 set(LZMA_SOURCES
 	src/7zAlloc.c
 	src/7zArcIn.c

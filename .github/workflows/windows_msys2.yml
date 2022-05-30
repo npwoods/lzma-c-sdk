@@ -44,6 +44,6 @@ jobs:
     # Build LZMA C SDK
     - name: Build LZMA C SDK
       run: |
-        cmake . -G "Ninja"
-        cmake --build .
-        cmake --install .            
+        cmake -S. -Bbuild -G "Ninja" -DCMAKE_BUILD_TYPE=${{ matrix.config }}
+        cmake --build build
+        cmake --install build
