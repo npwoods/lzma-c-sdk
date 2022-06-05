@@ -90,14 +90,27 @@ set(LZMA_HEADERS
 	src/XzCrc64.h
 	src/XzEnc.h)
 
-add_library(lzma ${LZMA_SOURCES} ${LZMA_HEADERS})
+add_library(${PROJECT_NAME} ${LZMA_SOURCES} ${LZMA_HEADERS})
 
-set_target_properties(lzma PROPERTIES
+set_target_properties(${PROJECT_NAME} PROPERTIES
 	LINKER_LANGUAGE C
 	PUBLIC_HEADER "${LZMA_HEADERS}")
 
+# configure the LZMAConfig.cmake file
+set(CONF_INCLUDE_DIR ${CMAKE_INSTALL_FULL_INCLUDEDIR})
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+set(CONF_LIBRARIES ${PROJECT_NAME}d)
+else()
+set(CONF_LIBRARIES ${PROJECT_NAME})
+endif()
+configure_file(LZMAConfig.cmake.in "${CMAKE_FILES_DIRECTORY}/LZMAConfig.cmake")
+
 install(
-    TARGETS lzma
+    TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/lzma"
+)
+
+install(
+	FILES "${CMAKE_FILES_DIRECTORY}/LZMAConfig.cmake" DESTINATION lib/cmake/lzma
 )
