@@ -103,7 +103,7 @@ set(CONF_LIBRARIES ${PROJECT_NAME}d)
 else()
 set(CONF_LIBRARIES ${PROJECT_NAME})
 endif()
-configure_file(LZMAConfig.cmake.in "${CMAKE_FILES_DIRECTORY}/LZMAConfig.cmake")
+configure_file(LZMAConfig.cmake.in "${CMAKE_CURRENT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/LZMAConfig.cmake")
 
 install(
     TARGETS ${PROJECT_NAME}
@@ -112,5 +112,5 @@ install(
 )
 
 install(
-	FILES "${CMAKE_FILES_DIRECTORY}/LZMAConfig.cmake" DESTINATION lib/cmake/lzma
+	FILES "${CMAKE_CURRENT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/LZMAConfig.cmake" DESTINATION lib/cmake/lzma
 )
