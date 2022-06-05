@@ -97,7 +97,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 	PUBLIC_HEADER "${LZMA_HEADERS}")
 
 # configure the LZMAConfig.cmake file
-set(CONF_INCLUDE_DIR ${CMAKE_INSTALL_FULL_INCLUDEDIR})
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 set(CONF_LIBRARIES ${PROJECT_NAME}d)
 else()
