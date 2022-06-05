@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 3.15)
+
+# lzma-c-sdk configuration
+set(LZMA_FOUND			TRUE)
+set(LZMA_INCLUDE_DIR	"@CONF_INCLUDE_DIR@")
+set(LZMA_LIBRARIES		"@CONF_LIBRARIES@")
